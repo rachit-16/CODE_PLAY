@@ -1,0 +1,28 @@
+.Sidebar {
+  min-height: 100%;
+  min-width: 350px;
+  position: fixed;
+  z-index: 1;
+  /*top: 0;
+    left: 0;*/
+  background-color: lightgray;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding: 5px 5px;
+  text-align: center;
+}
+
+.main {
+  margin-top: 20px;
+  text-align: left;
+  transition: margin-left 0.5s;
+  padding: 16px;
+}
+
+/* On smaller screens, where height is less than 450px,
+change the style of the sidenav (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+  .Sidebar {
+    padding-top: 15px;
+  }
+}
