@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./Sidebar.module.css";
-import Editor from "../../Editor/Editor";
 
+import Editor from '../../Editor/Editor'
 const sidebar = (props) => {
   //console.log(code)
   console.log("props-", props);
@@ -9,8 +9,8 @@ const sidebar = (props) => {
   return (
     <div className={styles.Sidebar}>
       <h2>CODE</h2>
-      {/* <textarea rows="23" cols="43" value={props.code} readOnly /> */}
-      <Editor />
+       <Editor code={props.code}/>
+      
     </div>
   );
 };

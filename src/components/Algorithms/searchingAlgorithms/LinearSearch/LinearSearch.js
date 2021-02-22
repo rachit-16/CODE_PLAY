@@ -5,11 +5,12 @@ import code from "./code";
 import Header from "../../../utils/Header";
 import ArrayTile from "../ArrayTile";
 import SideBar from "../Sidebar";
+import Editor from '../../../Editor/Editor'
 // import BackBar from "../../../utils/Backbar";
 
 // Stylesheets
 import "./LinearSearch.css";
-
+import "bootstrap/dist/css/bootstrap.min.css";
 const NUMBER_OF_ARRAY_BARS = 15;
 const DEFAULT_COLOR = "#6376f1";
 const FOUND_COLOR = "#28B463";
@@ -107,6 +108,7 @@ export default class LinearSearch extends React.Component {
     return (
       <div>
         <SideBar code={code} />
+        {/* <Editor/> */}
         <div className="width">
           <center>
             <Header title="Linear Search" />
