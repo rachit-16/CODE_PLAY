@@ -2,7 +2,7 @@ import React from "react";
 // import { render } from "react-dom";
 import AceEditor from "react-ace";
 
-import "ace-builds/src-noconflict/mode-javascript";
+import "ace-builds/src-noconflict/mode-c_cpp";
 import "ace-builds/src-noconflict/theme-twilight";
 import "ace-builds/src-noconflict/ext-language_tools";
 
@@ -14,7 +14,7 @@ const editor = (props) => {
   // Render editor
   return (
     <AceEditor
-      mode="javascript"
+      mode="c_cpp"
       theme="twilight"
       readOnly="true"
       defaultValue={props.code}
