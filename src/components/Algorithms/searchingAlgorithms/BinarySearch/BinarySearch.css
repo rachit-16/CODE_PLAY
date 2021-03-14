@@ -69,13 +69,24 @@
   transform: scale3d(1.25, 1.25, 1.25);
   margin: 1.5rem;
 }
-.width {
-  width: 100%;
-  margin-left: 240px;
+.Bwidth {
+  align-items: right;
+  width: 50%;
+  margin-left: 640px;
   min-height: 100%;
-  margin-bottom: 0px;
+
   background-color: white;
-  margin-top: 80px;
+  /*margin-top: 80px;
+  margin-bottom:80px;
   margin-right: 60px;
-  padding-top: 20px;
+  padding-top: 20px;*/
+  box-sizing: border-box;
+}
+
+.comp {
+  min-height:1000px;
+  width:auto;
+  box-sizing: border-box;
+  display: flex;
+  justify-content:space-between;
 }

@@ -4,8 +4,8 @@ import { linearSearchAnimations } from "../searchingAlgorithms";
 import code from "./code";
 import Header from "../../../utils/Header";
 import ArrayTile from "../ArrayTile";
-import SideBar from "../Sidebar";
-import Editor from '../../../Editor/Editor'
+import CodeSideBar from "../../../CodeSideBar/CodeSideBar";
+
 // import BackBar from "../../../utils/Backbar";
 
 // Stylesheets
@@ -106,8 +106,11 @@ export default class LinearSearch extends React.Component {
     const { array, found, disabled, msgAfterExecution } = this.state;
 
     return (
-      <div>
-        <SideBar code={code} />
+      <div className="comp">
+        <div>
+        <CodeSideBar clicked={this.props.clicked} code={code} />
+        </div>
+        
         {/* <Editor/> */}
         <div className="width">
           <center>

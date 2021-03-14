@@ -1,0 +1,52 @@
+.Practice {
+ 
+  display:flex;
+  justify-content: space-between;
+  z-index: 1000;
+  
+ 
+
+}
+.Sidebar {
+  position: fixed;
+  min-width: 300px;
+  max-width: 100%;
+  min-height: 90%;
+  display: flex;
+  flex-direction: column;
+  justify-content:safe;
+  right: 0;
+  top: 5px;
+  bottom: 10px;
+  z-index: 200;
+  background-color:black;
+padding:none;
+padding-left:10px;
+  box-sizing: border-box;
+  transition: transform 0.3s ease-out;
+ 
+
+
+ /* min-height: 80%;
+  width: 550px;
+  position: fixed;
+  z-index: 1000;
+  /*top: 0;
+      left: 0;
+  background-color: lightgray;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding: 5px 5px;
+  text-align: center;
+  padding-right: 20px;
+  box-sizing: border-box;*/
+}
+
+.Open {
+  display: block;
+  transform: translateX(0);
+}
+.Close {
+  display: none;
+  transform: translateX(-100);
+}

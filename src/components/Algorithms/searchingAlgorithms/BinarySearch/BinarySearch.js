@@ -1,8 +1,8 @@
 import React from "react";
-
+import Practice from '../../../Practice/Practice'
 import { randomIntFromInterval } from "../../../utils/randomIntFromInterval";
 import { binarySearchAnimations } from "../searchingAlgorithms";
-import Sidebar from "../Sidebar";
+import CodeSideBar from "../../../CodeSideBar/CodeSideBar";
 import code from "./code";
 import Header from "../../../utils/Header";
 import ArrayTile from "../ArrayTile";
@@ -131,13 +131,13 @@ class BinarySearch extends React.Component {
     const { array, found, disabled, msgAfterExecution } = this.state;
 
     return (
-      <div>
+      <div className="comp">
         <div>
-          <Sidebar code={code} />
+          <CodeSideBar clicked={this.props.clicked} code={code} />
         </div>
 
-        <div className=" width">
-          <center>
+        <div className="Bwidth">
+          <section>
             <Header title="Binary Search" />
             <div className="container">
               <div className="row">
@@ -185,8 +185,14 @@ class BinarySearch extends React.Component {
                 />
               ))}
             </div>
-          </center>
+          </section>
+         
         </div>
+        {/*<div>
+        <Practice/>
+        </div>*/}
+        
+       
       </div>
     );
   }

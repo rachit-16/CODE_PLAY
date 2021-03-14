@@ -1,9 +1,9 @@
 import React from "react";
-
+import CodeSideBar from "../../CodeSideBar/CodeSideBar"
 import CHARS from "./wordSearch-utils/chars";
 import Cell from "./Cell/Cell";
 import { randomIntFromInterval } from "../../utils/randomIntFromInterval";
-import Sidebar from "../searchingAlgorithms/Sidebar";
+
 import code from "./code";
 
 import { wordDFS } from "./algorithms/wordDFS";
@@ -118,7 +118,10 @@ export default class WordSearch extends React.Component {
     const { grid, disabled } = this.state;
     return (
       <div>
-        <Sidebar code={code} />
+        <div>
+        <CodeSideBar clicked={this.props.clicked}code={code} />  
+        </div>
+        
         <div className="WordSearch">
           <div className="col-sm-5 mt-2">
             <div className="input-group">
