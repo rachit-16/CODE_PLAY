@@ -1,0 +1,71 @@
+.Sidebar {
+  position: fixed;
+  width: 500px;
+  height: 95vh;
+  top: 5px;
+  left: 100vw;
+  z-index: 2000;
+  background-color: black;
+  padding-left: 10px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: safe;
+  transition: all 0.3s ease-out;
+}
+
+.top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.Sidebar p {
+  color: white;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.runButton {
+  border: none;
+  width: 60px;
+  border-radius: 1rem;
+  margin-right: 16px;
+  padding: 3px 10px;
+  background-color: rgb(46, 124, 16);
+  color: white;
+}
+
+.runButton:hover {
+  font-weight: bold;
+  transform: scaleX(1.1);
+}
+
+.practiceEditor {
+  padding: 5px;
+  width: 100%;
+  height: 60%;
+}
+
+.Practice {
+  width: 100%;
+  height: 40%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.inputEditor,
+.outputEditor {
+  width: 100%;
+  height: 100%;
+}
+
+.Open {
+  transform: translateX(-105%);
+  opacity: 1;
+}
+
+.Close {
+  transform: translateX(100vw);
+  opacity: 1;
+}
