@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const compiler = async (userCode, userInput) => {
+const compiler =  (userCode, userInput) => {
   let program = {
     script: userCode,
     stdin: userInput,
@@ -19,7 +19,7 @@ const compiler = async (userCode, userInput) => {
   // const url = 'http://127.0.0.1:3080/'
 
   // axios.defaults.headers.post['Content-Type'] = 'application/json'
-  await axios
+    axios
     .post('/api/execute', program, config)
     .then((data) => {
       console.log('DATA:::', data)

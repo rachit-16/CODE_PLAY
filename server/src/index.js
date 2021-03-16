@@ -37,7 +37,7 @@ app.post('/api/execute', (req, res) => {
         }
       })
       .then((response) => {
-        res.send(response.data)
+        return res.send(response.data)
       })
       .catch((e) => {
         throw new Error(e)

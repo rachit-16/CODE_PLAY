@@ -2,8 +2,8 @@ import React, { Component } from 'react'
 import Auxillary from '../../hoc/Auxiliary/Auxillary'
 import Editor from '../Editor/Editor'
 import classes from './Practice.module.css'
-import compiler from '../../services/compiler'
-
+//import compiler from '../../services/compiler'
+import axios from 'axios'
 const template = `#include<bits/stdc++.h>
 using namespace std;
 
@@ -23,19 +23,56 @@ class Practice extends Component {
     this.userCode = template
     this.userInput = ''
   }
+  
+  compiler=()=>{
+    let program = {
+      script: this.userCode,
+      stdin: this.userInput,
+      language: 'cpp17',
+      versionIndex: '0',
+      clientId: process.env.REACT_APP_JDOODLE_CLIENT_ID,
+      clientSecret: process.env.REACT_APP_JDOODLE_CLIENT_SECRET
+    }
+  
+    const config = {
+      headers: {
+        'content-type': 'application/json'
+      }
+    }
+  
+    
+      axios
+      .post('/api/execute', program, config)
+      .then((data) => {
+        console.log('DATA:::', data.data.output)
+        this.setState({ output:  data.data.output })
+
+        
+      })
+      .catch((e) => {
+        console.log('e: ', e)
+        return e
+      })
+  
+  
+  }
+
 
   onCodeChange = (value) => {
     this.userCode = value
+    console.log(this.userCode)
   }
 
   onInputChange = (value) => {
     this.userInput = value
+    console.log(this.userInput)
   }
 
-  runCodeHandler = async (code, input) => {
-    this.setState({ output: await compiler(code, input) })
-    console.log('OUTPUT::::', this.state.output)
-  }
+  /*runCodeHandler =(code, input) => {
+     console.log("compiler",compiler(code,input))
+    //this.setState({ output: await compiler(code, input) })
+    //console.log('OUTPUT::::', this.state.output)
+  }*/
 
   render() {
     let attachedClasses = [classes.Sidebar, classes.Close]
@@ -51,9 +88,7 @@ class Practice extends Component {
               <p>Code</p>
               <button
                 className={classes.runButton}
-                onClick={() =>
-                  this.runCodeHandler(this.userCode, this.userInput)
-                }
+                onClick={this.compiler}
               >
                 Run
               </button>
