@@ -25,6 +25,7 @@ class Practice extends Component {
   }
   
   compiler=()=>{
+    console.log('clicked compiler')
     let program = {
       script: this.userCode,
       stdin: this.userInput,
@@ -40,11 +41,13 @@ class Practice extends Component {
       }
     }
   
-    
+      document.getElementById('practicebtn').disabled=true;
       axios
       .post('/api/execute', program, config)
       .then((data) => {
         console.log('DATA:::', data.data.output)
+        document.getElementById('practicebtn').disabled=false;
+
         this.setState({ output:  data.data.output })
 
         
@@ -86,7 +89,7 @@ class Practice extends Component {
           <div className={classes.practiceEditor}>
             <div className={classes.top}>
               <p>Code</p>
-              <button
+              <button id="practicebtn"
                 className={classes.runButton}
                 onClick={this.compiler}
               >

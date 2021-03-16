@@ -22,9 +22,9 @@ class Layout extends Component {
   render() {
     return (
       <Auxillary>
-        {/* <WordSearch clicked={this.showPracticeToggleHandler} /> */}
-        {/* <Practice show={this.state.showPractice} /> */}
-      <About/>
+         <WordSearch clicked={this.showPracticeToggleHandler} /> 
+         <Practice show={this.state.showPractice} /> 
+      {/* <About/> */}
       </Auxillary>
     )
   }
