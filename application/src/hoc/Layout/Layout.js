@@ -3,7 +3,7 @@ import WordSearch from '../../components/Algorithms/WordSearchVisualiser/WordSea
 import Auxillary from '../Auxiliary/Auxillary'
 import Practice from '../../components/Practice/Practice'
 // import classes from './Layout.module.css'
-
+import About from '../../components/About/About'
 class Layout extends Component {
   state = {
     //To handle Practice section
@@ -22,8 +22,9 @@ class Layout extends Component {
   render() {
     return (
       <Auxillary>
-        <WordSearch clicked={this.showPracticeToggleHandler} />
-        <Practice show={this.state.showPractice} />
+        {/* <WordSearch clicked={this.showPracticeToggleHandler} /> */}
+        {/* <Practice show={this.state.showPractice} /> */}
+      <About/>
       </Auxillary>
     )
   }

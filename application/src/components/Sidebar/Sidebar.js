@@ -17,10 +17,13 @@ const sidebar = () => {
         <div>
             <div id="mySidebar" className={styles.Sidebar}>
                 <button className={styles.closebtn} onClick={closeNav}>x</button>
-                <a href="www.google.com">About</a>
-                <a href="www.google.com">Services</a>
-                <a href="www.google.com">Clients</a>
-                <a href="www.google.com">Contact</a>
+                <div className={styles.main}>
+                <a href="/searching">Searching</a>
+                <a href="/backtracking">Backtracking</a>
+                <a href="/dynamic">Dynamic Programming</a>
+                <a href="/Contact">Contact</a>
+                </div>
+                
                 </div>
 
             <div id="main" className={styles.main}>
