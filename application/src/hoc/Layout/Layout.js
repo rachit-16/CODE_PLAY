@@ -4,6 +4,7 @@ import Auxillary from '../Auxiliary/Auxillary'
 import Practice from '../../components/Practice/Practice'
 // import classes from './Layout.module.css'
 import About from '../../components/About/About'
+import SearchPage from '../../components/Algorithms/searchingAlgorithms/SearchPage/SearchPage'
 class Layout extends Component {
   state = {
     //To handle Practice section
@@ -22,9 +23,10 @@ class Layout extends Component {
   render() {
     return (
       <Auxillary>
-         <WordSearch clicked={this.showPracticeToggleHandler} /> 
+        {/* <WordSearch clicked={this.showPracticeToggleHandler} /> 
          <Practice show={this.state.showPractice} /> 
       {/* <About/> */}
+      <SearchPage/>
       </Auxillary>
     )
   }
