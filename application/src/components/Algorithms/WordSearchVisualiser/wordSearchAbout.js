@@ -18,9 +18,9 @@ eveniet harum fugiat, amet fugit quibusdam perspiciatis quas ipsa. Libero
 eligendi odit neque iusto! Veritatis recusandae doloribus assumenda quia
 esse quo natus reiciendis! Harum et soluta perspiciatis quasi?`
 
-  const heading = 'Searching Algorithms'
+  const heading = 'Backtarcking Algorithms'
 
-  return <AlgorithmDescriber heading={heading} content={content} />
+  return <AlgorithmDescriber visualizer ="/backtracking/wordSearch"  heading={heading} content={content} />
 }
 
 export default wordSearchAbout

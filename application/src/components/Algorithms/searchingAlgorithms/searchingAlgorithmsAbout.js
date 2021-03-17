@@ -20,7 +20,7 @@ esse quo natus reiciendis! Harum et soluta perspiciatis quasi?`
 
   const heading = 'Searching Algorithms Algorithms'
 
-  return <AlgorithmDescriber heading={heading} content={content} />
+  return <AlgorithmDescriber visualizer="/searching/binarySearch"  heading={heading} content={content} />
 }
 
 export default searchingAlgorithmsAbout

@@ -1,5 +1,6 @@
 import React from 'react'
 import styles from './Sidebar.module.css'
+import {Link} from 'react-router-dom'
 
 const sidebar = () => {
   const openNav = () => {
@@ -19,10 +20,10 @@ const sidebar = () => {
           x
         </button>
         <div className={styles.main}>
-          <a href="/searching">Searching</a>
-          <a href="/backtracking">Backtracking</a>
-          <a href="/dynamic">Dynamic Programming</a>
-          <a href="/Contact">Contact</a>
+          <Link to="/searching">Searching</Link>
+          <Link to="/backtracking">Backtracking</Link>
+          <Link to="/dp">Dynamic Programming</Link>
+          <Link to="/Contact">Contact</Link>
         </div>
       </div>
 

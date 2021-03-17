@@ -1,6 +1,7 @@
 import React from 'react'
 import styles from './Signup.module.css'
 import avatar from './img_avatar.png'
+import {Link} from 'react-router-dom'
 
 const signup = () => {
     const getInputHandler = () => {
@@ -22,7 +23,7 @@ const signup = () => {
                 <input type="password" placeholder="Enter Password" name="psw"
                 onChange={getInputHandler} required />
                     
-                <button type="submit">Login</button>
+                <Link to="/about"><button type="submit">Login</button></Link>
                 <label>
                 <input type="checkbox" checked="checked" name="remember"
                 onChange={getInputHandler} />
