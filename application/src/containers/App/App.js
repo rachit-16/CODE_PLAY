@@ -11,11 +11,7 @@ import styles from './App.module.css'
 import Layout from '../../hoc/Layout/Layout'
 
 function app() {
-  return (
-    <div>
-      <Layout />
-    </div>
-  )
+  return <Layout />
 }
 
 export default app
