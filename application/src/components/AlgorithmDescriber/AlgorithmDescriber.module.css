@@ -26,13 +26,23 @@
 }
 
 .buttons {
-  width: 400px;
+  width: 600px;
   display: flex;
   align-items: center;
   justify-content: space-around;
 }
 
-.visualizeButton,
+.visualizeButton {
+  padding: 8px 16px;
+  border: 1px solid black;
+  border-radius: 1rem;
+  color: #eee;
+  font-size: 18px;
+  letter-spacing: 1px;
+  cursor: pointer;
+  width: 250px;
+  background-color: rgb(54, 124, 13);
+}
 .practiceButton {
   padding: 8px 16px;
   border: 1px solid black;
@@ -41,14 +51,9 @@
   font-size: 18px;
   letter-spacing: 1px;
   cursor: pointer;
-}
-
-.visualizeButton {
-  background-color: rgb(54, 124, 13);
-}
-
-.practiceButton {
+  width: 250px;
   background-color: rgb(40, 27, 160);
+  margin-left: 5px;
 }
 
 .visualizeButton:hover,

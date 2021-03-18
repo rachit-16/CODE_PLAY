@@ -27,3 +27,18 @@
     padding-top: 15px;
   }
 }
+.Button {
+  padding: 8px 16px;
+  border: 1px solid black;
+  border-radius: 1rem;
+  color: #eee;
+  font-size: 18px;
+  width: 40%;
+  letter-spacing: 1px;
+  cursor: pointer;
+}
+
+.Button:hover {
+  font-weight: bold;
+  transform: scaleX(1.1) scaleY(1.1);
+}

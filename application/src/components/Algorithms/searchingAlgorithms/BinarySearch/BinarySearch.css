@@ -16,6 +16,33 @@
 .box {
   position: relative;
 }
+.BSbutton {
+  padding: 4px 8px;
+  border: 1px solid black;
+  border-radius: 1rem;
+  color: #eee;
+  font-size: 18px;
+  height: 40px;
+  letter-spacing: 1px;
+  cursor: pointer;
+}
+.BSbuttondanger {
+  padding: 4px 8px;
+  border: 1px solid black;
+  border-radius: 1rem;
+  margin-left: 2px;
+  color: white;
+  background-color: red;
+  font-size: 18px;
+  height: 40px;
+  letter-spacing: 1px;
+  cursor: pointer;
+}
+.BSbutton:hover,
+.BSbuttondanger:hover {
+  font-weight: bold;
+  transform: scaleX(1.1) scaleY(1.1);
+}
 
 .b-array-bar {
   background-color: #6376f1;
@@ -84,9 +111,9 @@
 }
 
 .comp {
-  min-height:1000px;
-  width:auto;
+  min-height: 1000px;
+  width: auto;
   box-sizing: border-box;
   display: flex;
-  justify-content:space-between;
+  justify-content: space-between;
 }

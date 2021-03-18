@@ -10,7 +10,7 @@ const codeSideBar = (props) => {
     <div className={styles.Sidebar}>
       <h2>CODE</h2>
        <Editor mode="c_cpp" code={props.code}/>
-       <button onClick={props.clicked}>Practice Code</button>
+       <button className={styles.Button} onClick={props.clicked}>Practice Code</button>
       
     </div>
   );

@@ -152,7 +152,7 @@ class BinarySearch extends React.Component {
                   <div className="input-group-append">
                     <button
                       onClick={() => this.binarySearch()}
-                      className="btn btn-success"
+                      className="BSbutton"
                       type="button"
                       id="binarySearchBtn"
                       disabled={disabled}
@@ -161,7 +161,7 @@ class BinarySearch extends React.Component {
                     </button>
                     <button
                       onClick={() => this.resetArray()}
-                      className="btn btn-danger"
+                      className="BSbuttondanger"
                       id="binarySearchResetArray"
                       type="button"
                       disabled={disabled}

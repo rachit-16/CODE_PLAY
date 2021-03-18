@@ -128,7 +128,7 @@ export default class LinearSearch extends React.Component {
                   <div className="input-group-append">
                     <button
                       onClick={() => this.linearSearch()}
-                      className="btn btn-success"
+                      className="LSbutton"
                       type="button"
                       id="button-addon2"
                       disabled={disabled}
@@ -137,7 +137,7 @@ export default class LinearSearch extends React.Component {
                     </button>
                     <button
                       id="resetArray"
-                      className="btn btn-danger"
+                      className="LSbuttondanger"
                       onClick={() => this.resetArray()}
                       type="button"
                       disabled={disabled}
