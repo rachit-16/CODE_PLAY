@@ -1,8 +1,9 @@
 const express = require('express')
 const axios = require('axios')
-
+const  mongoose=require('mongoose')
+const initroutes=require('../routes/route')
 const app = express()
-const port = process.env.PORT || 3080
+const port = process.env.PORT || 3000
 
 app.use(express.json())
 
@@ -22,7 +23,20 @@ app.use((req, res, next) => {
   // console.log('res:::', res)
   next()
 })
-
+//--------------------MONGOOSE-------------------
+mongoose.connect("mongodb+srv://pizza:pizza@cluster0.jg2br.mongodb.net/codeplay", {
+    useNewUrlParser: true,
+    useCreateIndex: true,
+    useUnifiedTopology: true,
+    useFindAndModify: false
+  })
+  
+  const connection = mongoose.connection
+  
+  connection.once('open', () => {
+    console.log('Established')
+  })
+//-------------------------------------------------
 app.post('/', (req, res) => {
   res.send('App works!!!')
 })
@@ -47,11 +61,7 @@ app.post('/api/execute', (req, res) => {
     res.status(404).send(e)
   }
 })
-
-// app.post('/', (req, res, next) => {
-//   // Handle the post for this route
-// })
-
+initroutes(app)
 app.listen(port, () => {
   console.log(`CORS-enabled web server listening on port ${port}`)
 })
