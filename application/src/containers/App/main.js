@@ -12,10 +12,14 @@ import WordSearchLayout from '../../components/Algorithms/WordSearchVisualiser/B
 const main = (props) => {
   return (
     <>
-      {/* <Route path="/" exact component={LoginSignup} /> */}
+      <Route path="/" exact component={LoginSignup} />
       {/* ---------------CHANGE THIS ROUTE FOR POSTS---------------- */}
+<<<<<<< HEAD
       <Route path="/login" exact component={LoginSignup}/>
       <Route path="/" exact component={Posts} />
+=======
+      {/* <Route path="/" exact component={Posts} /> */}
+>>>>>>> 5e1de2bc9e0b33041965e97464c65736c5612ef1
       <Route path="/about" exact component={about} />
       <Route path="/searching" exact component={SearchingAbout} />
       <Route path="/backtracking" exact component={BacktrackingAbout} />

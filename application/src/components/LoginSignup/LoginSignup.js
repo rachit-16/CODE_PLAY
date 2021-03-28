@@ -8,6 +8,7 @@ import {
   FaGoogle,
   FaEnvelope
 } from 'react-icons/fa'
+import axios from 'axios'
 import styles from './LoginSignup.module.css'
 
 class Form extends Component {
@@ -24,6 +25,44 @@ class Form extends Component {
     })
   }
 
+  loginHandler = (e) => {
+    e.preventDefault()
+    const formData = new FormData(e.target)
+
+    axios
+      .post('/login', formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data'
+        }
+      })
+      .then((response) => {
+        console.log('login response:::', response.data)
+        localStorage.setItem('loginToken', `${response.data.logintoken}`)
+      })
+      .catch((error) => {
+        console.log('login error:::', error)
+      })
+  }
+
+  signupHandler = (e) => {
+    e.preventDefault()
+    const formData = new FormData(e.target)
+
+    axios
+      .post('/signup', formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data'
+        }
+      })
+      .then((response) => {
+        console.log('signup response:::', response.data)
+        localStorage.setItem('signupToken', `${response.data.logintoken}`)
+      })
+      .catch((error) => {
+        console.log('signup error:::', error)
+      })
+  }
+
   render() {
     return (
       <div className={styles.formPage}>
@@ -35,7 +74,7 @@ class Form extends Component {
                 styles['sign-up-container']
               ].join(' ')}
             >
-              <form action="">
+              <form onSubmit={(e) => this.signupHandler(e)}>
                 <h1>Create Account</h1>
                 <div className={styles['social-container']}>
                   <a href="/" className={styles.social}>
@@ -51,11 +90,16 @@ class Form extends Component {
                 <span>or use your email for registration</span>
                 <div className={styles.username}>
                   <FaUser />
-                  <input type="text" name="name" placeholder="Name" />
+                  <input type="text" name="name" placeholder="Name" required />
                 </div>
                 <div className={styles.email}>
                   <FaEnvelope />
-                  <input type="email" name="email" placeholder="Email" />
+                  <input
+                    type="email"
+                    name="email"
+                    placeholder="Email"
+                    required
+                  />
                 </div>
                 <div className={styles.password}>
                   <FaKey />
@@ -63,9 +107,10 @@ class Form extends Component {
                     type="password"
                     name="password"
                     placeholder="Password"
+                    required
                   />
                 </div>
-                <button>SignUp</button>
+                <button>Sign Up</button>
               </form>
             </div>
             <div
@@ -74,7 +119,7 @@ class Form extends Component {
                 styles['sign-in-container']
               ].join(' ')}
             >
-              <form action="/">
+              <form onSubmit={(e) => this.loginHandler(e)}>
                 <h1>Sign In</h1>
                 <div className={styles['social-container']}>
                   <a href="/" className={styles.social}>
@@ -90,7 +135,12 @@ class Form extends Component {
                 <span>or use your account</span>
                 <div className={styles.email}>
                   <FaEnvelope />
-                  <input type="email" name="email" placeholder="Email" />
+                  <input
+                    type="email"
+                    name="email"
+                    placeholder="Email"
+                    required
+                  />
                 </div>
                 <div className={styles.password}>
                   <FaKey />
@@ -98,9 +148,10 @@ class Form extends Component {
                     type="password"
                     name="password"
                     placeholder="Password"
+                    required
                   />
                 </div>
-                <a href="/">Forgot Your Password</a>
+                <a href="/">Forgot Your Password?</a>
 
                 <button>Sign In</button>
               </form>
