@@ -37,7 +37,8 @@ class Form extends Component {
       })
       .then((response) => {
         console.log('login response:::', response.data)
-        localStorage.setItem('loginToken', `${response.data.logintoken}`)
+        localStorage.setItem('loginToken', `${response.data.token}`)
+        window.location="/posts"
       })
       .catch((error) => {
         console.log('login error:::', error)
@@ -56,7 +57,8 @@ class Form extends Component {
       })
       .then((response) => {
         console.log('signup response:::', response.data)
-        localStorage.setItem('signupToken', `${response.data.logintoken}`)
+        localStorage.setItem('loginToken', `${response.data.token}`)
+        window.location="/posts"
       })
       .catch((error) => {
         console.log('signup error:::', error)

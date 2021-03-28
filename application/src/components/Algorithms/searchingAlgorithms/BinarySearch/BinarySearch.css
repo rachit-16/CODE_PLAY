@@ -25,6 +25,7 @@
   height: 40px;
   letter-spacing: 1px;
   cursor: pointer;
+  background-color: green;
 }
 .BSbuttondanger {
   padding: 4px 8px;
