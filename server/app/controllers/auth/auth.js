@@ -55,7 +55,7 @@ function authentication() {
             res.json({
               message: 'Login succesful',
               name: user.name,
-              logintoken: logintoken
+              token: logintoken
             })
           }
         }

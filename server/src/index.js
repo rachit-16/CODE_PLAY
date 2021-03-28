@@ -5,10 +5,6 @@ const initroutes = require('../routes/route')
 
 const port = process.env.PORT || 3080
 const app = express()
-<<<<<<< HEAD
-const port = process.env.PORT || 3080
-=======
->>>>>>> 5e1de2bc9e0b33041965e97464c65736c5612ef1
 
 app.use(express.json())
 app.use(
