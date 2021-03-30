@@ -1,12 +1,12 @@
 .Post {
   margin: 0 auto;
   padding: 5px 15px;
-  width: 90%;
+  width: 95%;
   /* height: fit-content; */
   border: 1px solid rgb(36, 36, 36);
   border-radius: 1em;
   color: #eaeaea;
-  background-color: rgb(32, 31, 31);
+  background-color: rgb(32, 32, 32);
   box-shadow: 3px 3px 5px rgb(27, 27, 27);
   display: flex;
   flex-flow: column;
@@ -51,6 +51,10 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+
+.icons svg:hover {
+  cursor: pointer;
 }
 
 .upvote,

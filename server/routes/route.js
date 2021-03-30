@@ -9,10 +9,10 @@ function initroutes(app) {
   app.post('/signup', upload.none(), auth().createuser)
   app.post('/login', upload.none(), auth().login)
   app.post('/logout', authMiddleware, auth().logout)
-  app.post('/makepost', authMiddleware, post().makepost)
-  app.get('/getpost', authMiddleware, post().getpost)
-  app.post('/upvote/:id', authMiddleware, post().upvotee)
-  app.post('/downvote/:id', authMiddleware, post().downvotee)
+  app.post('/makepost', post().makepost)
+  app.get('/getposts', post().getposts)
+  app.post('/upvote/:id', post().upvotee)
+  app.post('/downvote/:id', post().downvotee)
 }
 
 module.exports = initroutes

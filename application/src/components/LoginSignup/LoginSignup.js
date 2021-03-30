@@ -38,7 +38,7 @@ class Form extends Component {
       .then((response) => {
         console.log('login response:::', response.data)
         localStorage.setItem('loginToken', `${response.data.token}`)
-        window.location="/posts"
+        window.location = '/posts'
       })
       .catch((error) => {
         console.log('login error:::', error)
@@ -48,6 +48,7 @@ class Form extends Component {
   signupHandler = (e) => {
     e.preventDefault()
     const formData = new FormData(e.target)
+    console.log('form data:::', formData)
 
     axios
       .post('/signup', formData, {
@@ -58,7 +59,7 @@ class Form extends Component {
       .then((response) => {
         console.log('signup response:::', response.data)
         localStorage.setItem('loginToken', `${response.data.token}`)
-        window.location="/posts"
+        window.location = '/posts'
       })
       .catch((error) => {
         console.log('signup error:::', error)

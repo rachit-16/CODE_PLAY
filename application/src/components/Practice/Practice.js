@@ -23,8 +23,8 @@ class Practice extends Component {
     this.userCode = template
     this.userInput = ''
   }
-  
-  compiler=()=>{
+
+  compiler = () => {
     console.log('clicked compiler')
     let program = {
       script: this.userCode,
@@ -34,32 +34,27 @@ class Practice extends Component {
       clientId: process.env.REACT_APP_JDOODLE_CLIENT_ID,
       clientSecret: process.env.REACT_APP_JDOODLE_CLIENT_SECRET
     }
-  
+
     const config = {
       headers: {
         'content-type': 'application/json'
       }
     }
-  
-      document.getElementById('practicebtn').disabled=true;
-      axios
+
+    document.getElementById('practicebtn').disabled = true
+    axios
       .post('/api/execute', program, config)
       .then((data) => {
         console.log('DATA:::', data.data.output)
-        document.getElementById('practicebtn').disabled=false;
+        document.getElementById('practicebtn').disabled = false
 
-        this.setState({ output:  data.data.output })
-
-        
+        this.setState({ output: data.data.output })
       })
       .catch((e) => {
         console.log('e: ', e)
         return e
       })
-  
-  
   }
-
 
   onCodeChange = (value) => {
     this.userCode = value
@@ -89,7 +84,8 @@ class Practice extends Component {
           <div className={classes.practiceEditor}>
             <div className={classes.top}>
               <p>Code</p>
-              <button id="practicebtn"
+              <button
+                id="practicebtn"
                 className={classes.runButton}
                 onClick={this.compiler}
               >
@@ -121,6 +117,7 @@ class Practice extends Component {
                 width="98%"
                 height="85%"
                 value={this.state.output}
+                readOnly
               />
             </div>
           </div>

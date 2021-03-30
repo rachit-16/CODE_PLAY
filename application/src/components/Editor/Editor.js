@@ -1,23 +1,13 @@
 import React from 'react'
-// import { render } from "react-dom";
+import Auxillary from '../../hoc/Auxiliary/Auxillary'
 import AceEditor from 'react-ace'
-//import classes from './Editor.module.css'
-
+import 'ace-builds/webpack-resolver'
 import 'ace-builds/src-noconflict/mode-c_cpp'
 import 'ace-builds/src-noconflict/theme-twilight'
 import 'ace-builds/src-noconflict/ext-language_tools'
-import Auxillary from '../../hoc/Auxiliary/Auxillary'
+// import styles from './Editor.module.css'
 
 const editor = (props) => {
-  // function onChange(newValue) {
-  //   console.log('change', newValue)
-  // }
-  let readOnly = false
-  if (props.code) {
-    readOnly = true
-  }
-
-  // Render editor
   return (
     <Auxillary>
       <p style={{ color: 'white' }}>{props.text}</p>
@@ -26,10 +16,11 @@ const editor = (props) => {
         width={props.width}
         mode={props.mode}
         theme="twilight"
-        readOnly={readOnly}
+        readOnly={props.readOnly}
         value={props.value}
         defaultValue={props.code ? props.code : props.template}
         name="UNIQUE_ID_OF_DIV"
+        fontSize={14}
         setOptions={{
           enableBasicAutocompletion: true,
           enableLiveAutocompletion: true,
@@ -38,8 +29,6 @@ const editor = (props) => {
         onChange={props.onChange}
       />
     </Auxillary>
-
-    // document.getElementById("example")
   )
 }
 
