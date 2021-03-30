@@ -60,6 +60,7 @@ app.post('/api/execute', (req, res) => {
         }
       })
       .then((response) => {
+        console.log(response.data)
         return res.send(response.data)
       })
       .catch((e) => {
