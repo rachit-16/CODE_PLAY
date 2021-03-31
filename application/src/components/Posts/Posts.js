@@ -51,8 +51,16 @@ class Posts extends Component {
     // console.log('upvote:::', id)
     // console.log(this.state)
     // console.log(this.postMap)
+    const loginToken = localStorage.getItem('loginToken')
+    console.log('Voting-', loginToken)
+    const temp={name:"naman"}
     axios
-      .post(`/${voteMethod}/${id}`)
+      .post(`/${voteMethod}/${id}`,temp,{
+        headers: {
+          Authorization: `Bearer ${loginToken}`
+        }
+
+      })
       .then((response) => {
         console.log(`${voteMethod} response:::`, response)
         let updatedPosts = [...this.state.posts]
@@ -83,13 +91,20 @@ class Posts extends Component {
 
   createNewPost = (event) => {
     event.preventDefault()
-    const newPostData = new FormData(event.target)
-    console.log('new post data:::', event.target, newPostData)
+   // const formData = new FormData(event.target)
+    //console.log("event",formData)
 
+    const newPostData = new FormData(event.target)
+    //console.log('new post data:::', event.target, newPostData)
+    //const formData = new FormData(event.target)
+    console.log("event",newPostData)
+    const loginToken = localStorage.getItem('loginToken')
+    console.log('Logut me token-', loginToken)
     axios
       .post('/makepost', newPostData, {
         headers: {
-          'Content-Type': 'multipart/form-data'
+          'Content-Type': 'multipart/form-data',
+          'Authorization': `Bearer ${loginToken}`
         }
       })
       .then((response) => {
@@ -119,7 +134,7 @@ class Posts extends Component {
                 <label htmlFor="newPostContent">Content</label>
                 <textarea name="newPostContent" required />
               </div>
-              <button>Submit</button>
+              <button type="submit">Submit</button>
             </form>
           </div>
         </div>
