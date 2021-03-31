@@ -3,6 +3,7 @@ const User = require('../../models/user')
 
 const auth = async (req, res, next) => {
   try {
+    console.log('middleware')
     console.log('entered in logout server')
     console.log(req.header)
     const token = req.header('Authorization').replace('Bearer ', '')
