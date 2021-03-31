@@ -9,9 +9,6 @@ import styles from './Posts.module.css'
 class Posts extends Component {
   state = { posts: null, noPosts: true }
   inputElement = undefined
-  user = null
-  // mapping post's id --> idx
-  postMap = new Map()
 
   componentDidMount() {
     // get search text
@@ -29,23 +26,15 @@ class Posts extends Component {
     axios
       .get('/getposts')
       .then((response) => {
-        console.log('get all posts response:::', response.data)
+        // console.log('get all posts response:::', response.data)
 
         let posts =
           response.data.length === 0 ? (
             <p className={styles.noPostIndicator}>No posts yet!</p>
           ) : (
             response.data.map((post, idx) => {
-              this.postMap[post._id] = idx
-              return (
-                <Post
-                  key={post._id}
-                  {...post}
-                  votingHandler={(id, voteMethod) =>
-                    this.votingHandler(id, voteMethod)
-                  }
-                />
-              )
+              // this.postMap[post._id] = idx
+              return <Post key={post._id} user={this.user} {...post} />
             })
           )
         this.setState(
@@ -54,86 +43,43 @@ class Posts extends Component {
             noPosts: response.data.length === 0
           },
           () => {
-            console.log('fetch state:::', this.state)
+            // console.log('fetch state:::', this.state)
           }
         )
-        // console.log('map posts:::', this.state.posts)
       })
       .catch((error) => {
         console.log('get all posts error:::', error)
       })
 
-    // fetch current user
-    const loginToken = localStorage.getItem('loginToken')
-    console.log('login token:::', loginToken)
-    axios
-      .get(`/getUser/${loginToken}`)
-      .then((response) => {
-        console.log('user:::', response.data)
-      })
-      .catch((error) => {
-        console.log('user error:::', error)
-      })
-  }
-
-  votingHandler = (id, voteMethod) => {
-    // console.log('upvote:::', id)
-    // console.log(this.state)
-    // console.log(this.postMap)
-    const loginToken = localStorage.getItem('loginToken')
-    // console.log('Voting-', loginToken)
-    const temp = { name: 'naman' }
-    axios
-      .post(`/${voteMethod}/${id}`, temp, {
-        headers: {
-          Authorization: `Bearer ${loginToken}`
-        }
-      })
-      .then((response) => {
-        console.log(`${voteMethod} response:::`, response)
-        const idx = this.postMap[id]
-        let updatedPosts = [...this.state.posts]
-        updatedPosts[idx] = (
-          <Post
-            key={id}
-            {...response.data}
-            votingHandler={(id, voteMethod) =>
-              this.votingHandler(id, voteMethod)
-            }
-          />
-        )
-
-        this.setState(
-          {
-            posts: updatedPosts
-          },
-          () => {
-            console.log('voting state:::', this.state)
-          }
-        )
-      })
-      .catch((error) => {
-        console.log('upvote error:::', error)
-      })
+    // // get current user
+    // const loginToken = localStorage.getItem('loginToken')
+    // // console.log('login token:::', loginToken)
+    // axios
+    //   .get('/getUser', {
+    //     headers: {
+    //       Authorization: `Bearer ${loginToken}`
+    //     }
+    //   })
+    //   .then((response) => {
+    //     console.log('user:::', response.data)
+    //     this.user = response.data.user
+    //   })
+    //   .catch((error) => {
+    //     console.log('user error:::', error)
+    //   })
   }
 
   searchPosts = (searchText) => {
     axios
       .get(`/getposts/${searchText}`)
       .then((response) => {
-        console.log('getposts by title response:::', response.data)
+        // console.log('getposts by title response:::', response.data)
         let posts =
           response.data.length === 0 ? (
             <p className={styles.noPostIndicator}>No posts found!</p>
           ) : (
             response.data.map((post) => (
-              <Post
-                key={post._id}
-                {...post}
-                votingHandler={(id, voteMethod) =>
-                  this.votingHandler(id, voteMethod)
-                }
-              />
+              <Post key={post._id} user={this.user} {...post} />
             ))
           )
 
@@ -159,16 +105,10 @@ class Posts extends Component {
         }
       })
       .then((response) => {
-        console.log('create post response:::', response.data)
+        // console.log('create post response:::', response.data)
 
         const newPost = (
-          <Post
-            key={response.data._id}
-            {...response.data}
-            votingHandler={(id, voteMethod) =>
-              this.votingHandler(id, voteMethod)
-            }
-          />
+          <Post key={response.data._id} user={this.user} {...response.data} />
         )
         let updatedPosts = null
 
@@ -185,7 +125,7 @@ class Posts extends Component {
             noPosts: false
           },
           () => {
-            console.log('makepost state:::', this.state)
+            // console.log('makepost state:::', this.state)
           }
         )
       })
@@ -195,7 +135,7 @@ class Posts extends Component {
   }
 
   render() {
-    console.log('render state:::', this.state)
+    // console.log('render state:::', this.state)
     return (
       <div className={styles.Posts}>
         <div className={styles.container}>
