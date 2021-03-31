@@ -2,13 +2,6 @@ const mongoose = require('mongoose')
 
 const Schema = mongoose.Schema
 
-
-
-
-
-
-
-
 const postSchema = new Schema({
   title: { type: String, required: true },
   body: { type: String, required: true },
@@ -19,10 +12,8 @@ const postSchema = new Schema({
   upvotedBy: { type: [String], default: null },
   downvotedBy: { type: [String], default: null },
   userExisted: { type: String, default: false }
-  
 })
 
 const Post = mongoose.model('Post', postSchema)
 
 module.exports = Post
-
