@@ -24,6 +24,7 @@ function authentication() {
         user.save()
 
         console.log(user)
+        console.log("createUser-",newtoken)
         res.json({ message: 'userCreated', token: newtoken })
       } else {
         res.json({ message: 'Email already registered' })
@@ -40,7 +41,7 @@ function authentication() {
         const email = req.body.email
         const password = req.body.password
         const user = await User.findOne({ email: email })
-
+          
         if (!user) {
           res.json({ message: 'Invalid Email' })
         } else {
