@@ -5,9 +5,9 @@ import SideBar from '../Sidebar/Sidebar'
 import Spinner from '../Spinner/Spinner'
 import { ImSearch } from 'react-icons/im'
 import styles from './Posts.module.css'
-
+import PostSpinner from '../PostSpinner/postSpinner'
 class Posts extends Component {
-  state = { posts: null, noPosts: true }
+  state = { posts: null, noPosts: true,submit:false }
   inputElement = undefined
 
   componentDidMount() {
@@ -96,7 +96,7 @@ class Posts extends Component {
     // console.log('event', newPostData)
     const loginToken = localStorage.getItem('loginToken')
     // console.log('Logut me token-', loginToken)
-
+    this.setState({submit:true})
     axios
       .post('/makepost', newPostData, {
         headers: {
@@ -122,7 +122,8 @@ class Posts extends Component {
         this.setState(
           {
             posts: updatedPosts,
-            noPosts: false
+            noPosts: false,
+            submit:false
           },
           () => {
             // console.log('makepost state:::', this.state)
@@ -144,7 +145,7 @@ class Posts extends Component {
             {this.state.posts ? this.state.posts : <Spinner />}
           </div>
           <div className={styles.makePost}>
-            <form onSubmit={(event) => this.createNewPost(event)}>
+            {this.state.submit?<PostSpinner/>:<form onSubmit={(event) => this.createNewPost(event)}>
               <h3>Create New Post</h3>
               <div>
                 <label htmlFor="newPostTitle">Title</label>
@@ -160,7 +161,7 @@ class Posts extends Component {
                 <textarea name="newPostContent" required />
               </div>
               <button type="submit">Submit</button>
-            </form>
+            </form>}
           </div>
         </div>
         <div className={styles.searchArea}>

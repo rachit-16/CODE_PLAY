@@ -2,6 +2,7 @@ import React from 'react'
 import Sidebar from '../Sidebar/Sidebar'
 import classes from './AlgorithmDescriber.module.css'
 import {Link} from 'react-router-dom'
+import "bootstrap/dist/css/bootstrap.min.css";
 const algorithmDescriber = (props) => (
   <div className={classes.AlgorithmDescriber}>
     <Sidebar />
@@ -11,7 +12,13 @@ const algorithmDescriber = (props) => (
         <p>{props.content}</p>
       </div>
       <div className={classes.buttons}>
-        <Link to={props.visualizer}><button className={classes.visualizeButton}>Vizualize</button></Link>
+
+
+  
+
+
+
+        <Link to={props.visualizer}><button className={classes.visualizeButton}>Vizualize</button></Link> 
         <button className={classes.practiceButton}>Practice</button>
       </div>
     </div>

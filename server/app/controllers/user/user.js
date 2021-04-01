@@ -9,7 +9,7 @@ function user() {
         /*console.log("GretUser")
         const token = req.header('Authorization').replace('Bearer', '')
         console.log(token)
-        const decoded = jwt.verify(token, 'CODEPLAY')
+        const decoded = jwt.verify(token, process.env.JWT_KEYWORD)
         const user = await User.findOne({
           _id: decoded._id,
           'tokens.token': token

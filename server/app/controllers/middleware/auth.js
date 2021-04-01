@@ -8,7 +8,7 @@ const auth = async (req, res, next) => {
     console.log(req.header)
     const token = req.header('Authorization').replace('Bearer ', '')
     console.log('Got logout token--', token)
-    const decoded = jwt.verify(token, 'CODEPLAY')
+    const decoded = jwt.verify(token, proceess.env.JWT_KEYWORD)
     const user = await User.findOne({ _id: decoded._id, 'tokens.token': token })
     console.log(user)
     if (!user) {
