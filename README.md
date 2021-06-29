@@ -2,7 +2,7 @@
 
 To run the <strong>server</strong> on localhost, follow the below steps:
 
-<br/><br/>
+
 1.Open the folder go inside Server folder<br/><br/>
 2.Create a .env file and enter the keywords of your Database username password for mail purpose and JWT KEYWORD <br/><br/>
 3.Run npm install command <br/><br/>
